@@ -1,0 +1,13 @@
+.footer {
+    background-color: #6bd177;
+    margin-top: 2rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .footerBox p {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }

@@ -1,0 +1,42 @@
+.headerBox {    
+    text-align: center;
+    margin: auto;
+    max-width: 75%;
+    margin-top: 3rem;
+}
+
+.headerSizing {
+    border: 0.125rem solid black;
+    border-radius: 0.75rem;
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.headerBox img {
+    width: 65%;
+    padding: 1rem;
+}
+
+.imageBox {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: flex;
+    margin-bottom: 10rem;
+    border: 0.125rem solid black;
+    border-radius: 0.75rem;
+}
+
+@media (max-width:500px) {
+    .headerBox img {
+        padding: 0.25rem;
+        width: 85%;
+    }
+
+    .headerBox {
+        max-width: 85%;
+    }
+
+    .imageBox {
+        margin-bottom: 6rem;
+    }
+}

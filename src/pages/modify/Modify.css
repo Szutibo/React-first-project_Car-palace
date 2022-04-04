@@ -1,0 +1,19 @@
+.modifyBox {
+    max-width: 75%;
+    margin-top: 3rem;
+}
+
+.searchField {
+    min-width: 22rem;
+    border-radius: 0.35rem;
+    border: black;
+}
+
+.searchFieldBox Button {
+    color: black;
+}
+
+.modifyItemBox {
+    display: flex;
+    justify-content: space-between;
+}
