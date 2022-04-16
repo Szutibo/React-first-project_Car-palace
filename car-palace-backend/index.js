@@ -8,7 +8,7 @@ const carData = [
     {
         brand: 'Audi',
         model: 'A3',
-        firstRegistration: '2004.10.18.',
+        firstRegistration: '2004-10-18',
         mileage: 260000,
         fuelType: 'dízel',
         performance: 125,
@@ -22,7 +22,7 @@ const carData = [
     {
         brand: 'Hyundai',
         model: 'Atos',
-        firstRegistration: '1998.12.10.',
+        firstRegistration: '1998-12-10',
         mileage: 180000,
         fuelType: 'benzin',
         performance: 65,
@@ -36,7 +36,7 @@ const carData = [
     {
         brand: 'Kia',
         model: 'Picanto',
-        firstRegistration: '2006.02.20.',
+        firstRegistration: '2006-02-20',
         mileage: 170000,
         fuelType: 'benzin',
         performance: 75,
@@ -50,7 +50,7 @@ const carData = [
     {
         brand: 'Lada',
         model: '1200',
-        firstRegistration: '1980.06.07.',
+        firstRegistration: '1980-06-07',
         mileage: 60000,
         fuelType: 'benzin',
         performance: 68,
@@ -64,7 +64,7 @@ const carData = [
     {
         brand: 'Mercedes',
         model: 'G250',
-        firstRegistration: '2014.03.09.',
+        firstRegistration: '2014-03-09',
         mileage: 48000,
         fuelType: 'dízel',
         performance: 350,
@@ -78,7 +78,7 @@ const carData = [
     {
         brand: 'Range Rover',
         model: 'Evoque',
-        firstRegistration: '2016.09.01.',
+        firstRegistration: '2016-09-01',
         mileage: 120000,
         fuelType: 'hybrid',
         performance: 250,
@@ -92,7 +92,7 @@ const carData = [
     {
         brand: 'Toyota',
         model: 'Highlander',
-        firstRegistration: '2009.04.08.',
+        firstRegistration: '2009-04-08',
         mileage: 156000,
         fuelType: 'hybrid',
         performance: 236,
@@ -106,7 +106,7 @@ const carData = [
     {
         brand: 'Toyota',
         model: 'Supra',
-        firstRegistration: '2018.09.30.',
+        firstRegistration: '2018-09-30',
         mileage: 25000,
         fuelType: 'elektromos',
         performance: 420,
