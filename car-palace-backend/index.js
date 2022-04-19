@@ -151,12 +151,12 @@ app.put('/modify/:id', (req, res) => {
     const car = carData.find((car) => car.id === parseInt(req.params.id));
 
     const index = carData.indexOf(car);
-        carData[index] =
-        {
-            ...car,
-            ...req.body
-        };
-        res.status(200).send(carData[index]);
+    carData[index] =
+    {
+        ...car,
+        ...req.body
+    };
+    res.status(200).send(carData[index]);
 });
 
 // Search endpoint
@@ -195,12 +195,12 @@ function carExists({ id, res }) {
 // Fueltype és Condition adatok ellenőrzése PUT és POST request esetében
 function checkDetailsOfRequest({ req, res }) {
     if (req.body?.fuelType) {
-        const fuelTypeError =  isFuelTypeValueCorrect({ fuelType: req.body.fuelType });
+        const fuelTypeError = isFuelTypeValueCorrect({ fuelType: req.body.fuelType });
         !fuelTypeError && res.status(400).send('Az üzemanyag típus csak [benzin, dízel, elektromos, hybrid] lehet!');
     }
 
     if (req.body?.condition) {
-        const conditionError =  isConditionValueCorrect({ condition: req.body.condition });
+        const conditionError = isConditionValueCorrect({ condition: req.body.condition });
         !conditionError && res.status(400).send('Az autó állapota csak [jó, hibátlan, bontásra, megviselt] lehet!');
     }
 

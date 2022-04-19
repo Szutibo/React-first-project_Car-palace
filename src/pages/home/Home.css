@@ -1,20 +1,22 @@
-.headerBox {    
-    text-align: center;
-    margin: auto;
-    max-width: 75%;
-    margin-top: 3rem;
-}
-
 .headerSizing {
-    border: 0.125rem solid black;
-    border-radius: 0.75rem;
     display: block;
     margin-bottom: 2rem;
 }
 
-.headerBox img {
+.imageBox img {
     width: 65%;
-    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.buyDreamcarBox img,
+.getMoneyBox img {
+    border: 0.2rem rgba(0, 255, 30, 0.192) solid;
+    box-shadow: 0px 0px 20px 2px rgba(20, 82, 1, 0.814);
+}
+
+.buyDreamcarBox,
+.getMoneyBox {
+    max-width: 34.375rem;
 }
 
 .imageBox {
@@ -22,21 +24,33 @@
     padding-bottom: 1rem;
     display: flex;
     margin-bottom: 10rem;
-    border: 0.125rem solid black;
-    border-radius: 0.75rem;
+}
+
+@media (max-width: 660px) {
+    .imageBox img {
+        width: 75%;
+    }
 }
 
 @media (max-width:500px) {
-    .headerBox img {
-        padding: 0.25rem;
+    .imageBox img {
         width: 85%;
     }
 
-    .headerBox {
-        max-width: 85%;
+    .headerSizing h4 {
+        font-size: 1.25rem;
+    }
+
+    .imageBox label {
+        font-size: 0.75rem;
     }
 
     .imageBox {
         margin-bottom: 6rem;
+    }
+
+    .buyDreamcarBox img,
+    .getMoneyBox img {
+        box-shadow: 0px 0px 6px 1px rgba(20, 82, 1, 0.814);
     }
 }

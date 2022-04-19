@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import '../Pages.css';
+import './Search.css';
+import { getCars } from '../../components/fetch/Fetch';
 
 // Card component imports
 import { styled } from '@mui/material/styles';
@@ -11,119 +14,129 @@ import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Alert from '@mui/material/Alert';
 
 const Search = () => {
   const [cars, setCars] = useState([]);
-  const [expanded, setExpanded] = React.useState(false);
   const images = require.context('../../../public/img', true);
-
+  const [expandedId, setExpandedId] = useState(-1);
+  const [httpErrors, setHttpErrors] = useState(null);
 
   // Fetch carData
-  const getCars = () => {
-    fetch('http://localhost:3001/search')
-      .then((result) => result.json())
-      .then((data) => {
-        setCars(data);
-      })
-      .catch((error) => {
-        console.log('error msg', error);
-      });
+  const loadCars = async () => {
+    try {
+      const requestedCarsArray = await getCars();
+      setCars(requestedCarsArray);
+    } catch (error) {
+      setHttpErrors(error.message);
+    }
   };
 
   useEffect(() => {
-    getCars();
+    loadCars();
   }, []);
 
   // Card element expand function
   const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
-
     return <IconButton {...other} />;
-  })(({ theme, expand }) => ({
-    transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-    marginLeft: 'auto',
-    transition: theme.transitions.create('transform', {
-      duration: theme.transitions.duration.shortest,
-    }),
-  }));
+  })
+    (({ theme, expand }) => ({
+      transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
+      marginLeft: 'auto',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+      }),
+    }));
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const handleExpandClick = (i) => {
+    setExpandedId(expandedId === i ? -1 : i);
   };
 
   return (
-    <div className='cardContainer'>
-      {
-        cars.map((oneCar) => {
-          let imageUrl = '';
+    <main className='container'>
+      <div className='cardContainer'>
+        {httpErrors
+          && <Alert
+            sx={{ maxWidth: 400 }}
+            className='mx-auto'
+            variant='outlined'
+            severity="error"
+          >{httpErrors}</Alert>}
+        {
+          cars.map((oneCar, i) => {
+            let imageUrl = '';
 
-          if (oneCar.image.includes('http')) {
-            imageUrl = oneCar.image;
-          } else {
-            imageUrl = images(`./${oneCar.image}`);
-          }
+            if (oneCar.image.includes('http')) {
+              imageUrl = oneCar.image;
+            } else {
+              imageUrl = images(`./${oneCar.image}`);
+            }
 
-          return (
-            <Card key={oneCar.id} sx={{ maxWidth: 345 }}>
-              <CardHeader title={oneCar.advertTitle} />
-              <CardMedia
-                component="img"
-                height="194"
-                src={imageUrl}
-                alt={oneCar.advertTitle}
-              />
-              <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  Márka: {oneCar.brand}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Típus: {oneCar.model}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Első forgalomba helyezés dátuma: {oneCar.firstRegistration}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Futásteljesítmény: {oneCar.mileage} km
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Üzem: {oneCar.fuelType}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Teljesítmény: {oneCar.performance} le
-                </Typography>
-                <Typography variant="h5" color="text.primary">
-                  Vételár: {oneCar.cost} huf
-                </Typography>
-              </CardContent>
-              <CardActions disableSpacing>
-                <ExpandMore
-                  expand={expanded}
-                  onClick={handleExpandClick}
-                  aria-expanded={expanded}
-                  aria-label="show more"
-                >
-                  <ExpandMoreIcon />
-                </ExpandMore>
-              </CardActions>
-              <Collapse in={expanded} timeout="auto" unmountOnExit>
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Állapot: {oneCar.condition}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    Hirdetésazonosító: {oneCar.id}
-                  </Typography>
-                  <Typography paragraph>Hirdetés szövege:</Typography>
-                  <Typography paragraph>
-                    {oneCar.advertText}
-                  </Typography>
-                </CardContent>
-              </Collapse>
-            </Card>
-          )
-        })
-      }
-    </div>
+            return (
+              <div key={oneCar.id} className='simpleCardContainer'>
+                <Card>
+                  <CardHeader titleTypographyProps={{ variant: 'h6' }} title={oneCar.advertTitle} />
+                  <CardMedia
+                    className='simpleCardImageContainer'
+                    component="img"
+                    height="200"
+                    src={imageUrl}
+                    alt={oneCar.brand}
+                  />
+                  <CardContent className='simpleCardContent'>
+                    <Typography variant="body2" color="text.secondary">
+                      Márka: {oneCar.brand}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Típus: {oneCar.model}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Évjárat: {oneCar.firstRegistration}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Futásteljesítmény: {oneCar.mileage} km
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Üzem: {oneCar.fuelType}
+                    </Typography>
+                    <Typography variant="h6" color="text.primary">
+                      Vételár: {oneCar.cost} huf
+                    </Typography>
+                  </CardContent>
+                  <CardActions disableSpacing>
+                    <ExpandMore
+                      onClick={() => handleExpandClick(i)}
+                      aria-expanded={expandedId === i}
+                      aria-label="show more"
+                    >
+                      <ExpandMoreIcon />
+                    </ExpandMore>
+                  </CardActions>
+                  <Collapse in={expandedId === i} timeout="auto" unmountOnExit>
+                    <CardContent className='simpleCardContent'>
+                      <Typography variant="body2" color="text.secondary">
+                        Teljesítmény: {oneCar.performance} le
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Állapot: {oneCar.condition}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary">
+                        Hirdetésazonosító: {oneCar.id}
+                      </Typography>
+                      <Typography paragraph>Hirdetés szövege:</Typography>
+                      <Typography paragraph>
+                        {oneCar.advertText}
+                      </Typography>
+                    </CardContent>
+                  </Collapse>
+                </Card>
+              </div>
+            )
+          })
+        }
+      </div>
+    </main>
   );
 }
 

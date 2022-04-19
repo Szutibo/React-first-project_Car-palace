@@ -16,7 +16,7 @@ import Footer from './components/footer/Footer';
 
 const setBgColorForWebsite = () => {
   const element = document.getElementById('root');
-  element.style.backgroundColor = '#baffc2';
+  element.style.backgroundColor = 'rgba(124, 252, 160, 0.3)';
 };
 
 setBgColorForWebsite();
@@ -26,12 +26,12 @@ ReactDOM.render(
     <BrowserRouter>
       <Navbar />
       <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/search' element={<Search />} />
-          <Route path='/sell' element={<Sell />} />
-          <Route path='/modify' element={<Modify />} />
-          <Route path='*' element={<Error />} />
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
+        <Route path='/search' element={<Search />} />
+        <Route path='/sell' element={<Sell />} />
+        <Route path='/modify' element={<Modify />} />
+        <Route path='*' element={<Error />} />
       </Routes>
       <Footer />
     </BrowserRouter>

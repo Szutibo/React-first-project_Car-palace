@@ -4,11 +4,11 @@ import './Footer.css';
 const Footer = () => {
   return (
     <main className='footer'>
-      <hr/>
+      <hr />
       <div className='footerBox'>
-        <p>&copy; Tibi's Car Palace Kft. 2022</p>       
+        <p>&copy; Tibi's Car Palace Kft. 2022</p>
       </div>
-      <hr/>
+      <hr />
     </main>
   )
 }

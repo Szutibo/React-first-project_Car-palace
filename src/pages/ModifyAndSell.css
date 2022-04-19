@@ -1,0 +1,49 @@
+.errorContainer {
+    font-size: 0.65rem;
+    color: red;
+    max-width: 13.875rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.container form label {
+    display: block;
+}
+
+.inputContainer>div {
+    margin: 0.5rem;
+    max-width: 13.875rem;
+}
+
+.inputContainer {
+    display: flex;
+    flex-flow: row wrap;
+    min-height: 60vh;
+    justify-content: space-between;
+    flex-basis: content;
+}
+
+.actionButtonContainer {
+    min-width: 13.875rem;
+}
+
+@media (max-width: 650px) {
+    .inputContainer {
+        margin: auto;
+        padding: 0;
+    }
+
+    .inputContainer>div {
+        margin: auto;
+        margin-top: 0.35rem;
+        margin-bottom: 0.35rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .inputContainer>div {
+        margin: auto;
+        margin-top: 0.3rem;
+        margin-bottom: 0.3rem;
+    }
+}

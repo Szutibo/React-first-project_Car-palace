@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+    margin: auto;
+    max-width: 70%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: rgba(121, 255, 136, 0.18);
+    border: 0.25rem solid rgba(121, 255, 136, 0.1);
+    border-radius: 0.25rem;
+    padding: 0.65rem;
+    display: block;
+}
+
+@media (max-width: 860px) {
+    .container {
+        max-width: 80%;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 85%;
+    }
+}
+
+@media (max-width: 380px) {
+    .container {
+        max-width: 92%;
+        padding: 0;
+    }
+}
