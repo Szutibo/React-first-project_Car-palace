@@ -135,8 +135,8 @@ const Modify = () => {
           <div>
             <TextField
               placeholder='Hirdetés azonosító:'
-              label="Azonosító"
-              variant="outlined"
+              label='Azonosító'
+              variant='outlined'
               onChange={(e) => setStateData({ ...stateData, id: e.target.value })}
               id='inputId'
               size='small'
@@ -156,22 +156,22 @@ const Modify = () => {
             sx={{ maxWidth: 400, display: alertDisplay }}
             className='mx-auto'
             variant='filled'
-            severity="success"
+            severity='success'
           >{alertData}</Alert>
           {httpErrors
             && <Alert
               sx={{ maxWidth: 400 }}
               className='mx-auto'
               variant='outlined'
-              severity="error"
+              severity='error'
             >{httpErrors}</Alert>}
           <hr></hr>
           <div className='inputContainer' style={{ display: containerDisplay }}>
             <div>
               <TextField
                 placeholder={fetchedCars.brand}
-                label="Márka"
-                variant="outlined"
+                label='Márka'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, brand: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.brand, 'brand')}
                 size='small'
@@ -183,8 +183,8 @@ const Modify = () => {
             <div>
               <TextField
                 placeholder={fetchedCars.model}
-                label="Modell"
-                variant="outlined"
+                label='Modell'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, model: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.model, 'model')}
                 size='small'
@@ -196,8 +196,8 @@ const Modify = () => {
             <div>
               <TextField
                 placeholder={fetchedCars.firstRegistration}
-                label="Évjárat"
-                variant="outlined"
+                label='Évjárat'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, firstRegistration: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.firstRegistration, 'firstRegistration')}
                 size='small'
@@ -209,13 +209,13 @@ const Modify = () => {
             <div>
               <TextField
                 //placeholder={fetchedCars.mileage}
-                label="Futásteljesítmény"
-                variant="outlined"
+                label='Futásteljesítmény'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, mileage: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.mileage, 'mileage')}
                 size='small'
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">km</InputAdornment>,
+                  endAdornment: <InputAdornment position='end'>km</InputAdornment>,
                 }}
                 value={stateData.mileage}
                 color='success'
@@ -227,7 +227,7 @@ const Modify = () => {
                 <InputLabel>Üzemanyag</InputLabel>
                 <Select
                   value={stateData.fuelType}
-                  label="üzemanyag"
+                  label='üzemanyag'
                   onChange={(e) => {
                     setStateData({ ...stateData, fuelType: e.target.value });
                     setButtonDisabled(false);
@@ -247,7 +247,7 @@ const Modify = () => {
                 <InputLabel>Állapot</InputLabel>
                 <Select
                   value={stateData.condition}
-                  label="állapot"
+                  label='állapot'
                   onChange={(e) => {
                     setStateData({ ...stateData, condition: e.target.value });
                     setButtonDisabled(false);
@@ -265,8 +265,8 @@ const Modify = () => {
             <div>
               <TextField
                 placeholder={fetchedCars.image}
-                label="Kép elérési útja"
-                variant="outlined"
+                label='Kép elérési útja'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, image: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.image, 'image')}
                 size='small'
@@ -278,13 +278,13 @@ const Modify = () => {
             <div>
               <TextField
                 //placeholder={fetchedCars.performance}
-                label="Teljesítmény"
-                variant="outlined"
+                label='Teljesítmény'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, performance: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.performance, 'performance')}
                 size='small'
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">le</InputAdornment>,
+                  endAdornment: <InputAdornment position='end'>le</InputAdornment>,
                 }}
                 value={stateData.performance}
                 color='success'
@@ -294,8 +294,8 @@ const Modify = () => {
             <div>
               <TextField
                 placeholder={fetchedCars.advertTitle}
-                label="Hirdetés címe"
-                variant="outlined"
+                label='Hirdetés címe'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, advertTitle: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.advertTitle, 'advertTitle')}
                 size='small'
@@ -307,8 +307,8 @@ const Modify = () => {
             <div>
               <TextField
                 placeholder={fetchedCars.advertText}
-                label="Hirdetés szövege"
-                variant="outlined"
+                label='Hirdetés szövege'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, advertText: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.advertText, 'advertText')}
                 size='small'
@@ -320,13 +320,13 @@ const Modify = () => {
             <div>
               <TextField
                 //placeholder={fetchedCars.cost}
-                label="Vételár"
-                variant="outlined"
+                label='Vételár'
+                variant='outlined'
                 onChange={(e) => setStateData({ ...stateData, cost: e.target.value })}
                 onKeyUp={() => dataPusher(stateData.cost, 'cost')}
                 size='small'
                 InputProps={{
-                  endAdornment: <InputAdornment position="end">huf</InputAdornment>,
+                  endAdornment: <InputAdornment position='end'>huf</InputAdornment>,
                 }}
                 value={stateData.cost}
                 color='success'
