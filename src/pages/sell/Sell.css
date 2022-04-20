@@ -1,0 +1,44 @@
+.feedbackContainer {
+    display: flex;
+}
+
+.modalContainer {
+    max-width: 60%;
+    margin: auto;
+    margin-top: 6rem;
+    overflow-y: auto;
+    max-height: 75%;
+}
+
+.feedbackCardContent {
+    display: flex;
+    padding: 2rem;
+    width: 99%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    gap: 1rem;
+}
+
+.feedbackCardContent>div {
+    flex-direction: column;
+}
+
+@media (max-width: 750px) {
+    .modalContainer {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 600px) {
+    .modalContainer {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 450px) {
+    .modalContainer {
+        max-width: 85%;
+    }
+}

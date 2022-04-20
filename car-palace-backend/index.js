@@ -177,7 +177,7 @@ app.post('/sell', (req, res) => {
 
     carData.push(newCar);
 
-    res.status(200).send(`A hirdetés feladása sikeres volt! A hirdetés azonosítója: ${newCar.id}`);
+    res.status(200).send(newCar);
 });
 
 // Utility functions:

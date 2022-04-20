@@ -26,7 +26,7 @@ export const createAdvert = async (stateData) => {
         })
     });
     if (createdCar.status === 200) {
-        return createdCar;
+        return createdCar.json();
     } else {
         throw new Error(
             `HTTP hiba történt: státuszkód ${createdCar.status}`
